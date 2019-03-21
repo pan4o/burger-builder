@@ -153,7 +153,7 @@ class ContactData extends Component {
     updatedOrderForm[inputIdentifier] = updatedFormElement;
 
     let formIsValid = true;
-    for (let inputIdentifiers in updatedOrderForm) {
+    for (let inputIdentifier in updatedOrderForm) {
       formIsValid = updatedOrderForm[inputIdentifier].valid && formIsValid;
     }
 
