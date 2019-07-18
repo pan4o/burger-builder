@@ -88,7 +88,7 @@ class ContactData extends Component {
             {value: 'cheapest', displayValue: 'Cheapest'},
           ]
         },
-        value: '',
+        value: 'fastest',
         validation: {},
         valid: true
       }
@@ -130,7 +130,7 @@ class ContactData extends Component {
     return isValid;
   }
 
-  inputChangedHander = (event, inputIdentifier) => {
+  inputChangedHandler = (event, inputIdentifier) => {
     const updatedOrderForm = {
       ...this.state.orderForm
     };
@@ -177,7 +177,7 @@ class ContactData extends Component {
             invalid={!formElement.config.valid}
             shouldValidate={formElement.config.validation}
             touched={formElement.config.touched}
-            changed={(event) => this.inputChangedHander(event, formElement.id)} />
+            changed={(event) => this.inputChangedHandler(event, formElement.id)} />
         ))}
         <Button btnType="Success" disabled={!this.state.formIsValid}>ORDER</Button>
       </form>
@@ -198,9 +198,9 @@ class ContactData extends Component {
 
 const mapStateToProps = state => {
   return {
-    ings: state.ingredients,
-    price: state.totalPrice,
-    loading: state.loading
+    ings: state.burgerBuilder.ingredients,
+    price: state.burgerBuilder.totalPrice,
+    loading: state.order.loading
   }
 };
 
