@@ -96,7 +96,7 @@ class ContactData extends Component {
     formIsValid: false,
   }
 
-  orderHander = (event) => {
+  orderHandler = (event) => {
     event.preventDefault();
     const formData = {};
     for (let formElementIdentifier in this.state.orderForm) {
@@ -167,7 +167,7 @@ class ContactData extends Component {
       });
     }
     let form = (
-      <form onSubmit={this.orderHander}>
+      <form onSubmit={this.orderHandler}>
         {formElementsArray.map(formElement => (
           <Input
             key={formElement.id}
