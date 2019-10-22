@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Modal from '../../components/UI/Modal/Modal';
 import Aux from '../Aux/Aux';
 
-const withErrorHander = (WrappedComponent, axios) => {
+const withErrorHandler = (WrappedComponent, axios) => {
   return class extends Component {
     state = {
       error: null
@@ -25,7 +25,7 @@ const withErrorHander = (WrappedComponent, axios) => {
       axios.interceptors.response.eject(this.resInterceptor);
     }
 
-    errorConfirmedHander = () => {
+    errorConfirmedHandler = () => {
       this.setState({ error: null });
     }
 
@@ -34,7 +34,7 @@ const withErrorHander = (WrappedComponent, axios) => {
         <Aux>
           <Modal
             show={this.state.error}
-            modalClosed={this.errorConfirmedHander}
+            modalClosed={this.errorConfirmedHandler}
           >
             {this.state.error ? this.state.error.message : null}
           </Modal>
@@ -45,4 +45,4 @@ const withErrorHander = (WrappedComponent, axios) => {
   }
 };
 
-export default withErrorHander;
+export default withErrorHandler;
